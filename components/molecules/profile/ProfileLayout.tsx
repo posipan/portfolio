@@ -1,15 +1,21 @@
+import styled from "styled-components";
 import { Box, Heading } from "@chakra-ui/react";
-import { fontFamily } from "../../../styles/style";
-const { en } = fontFamily;
 
 export const ProfileLayout = ({ title, children }: {
   title: string;
   children: React.ReactNode;
 }) => {
   return (
-    <Box as="section" mb={14}>
-      <Heading as="h2" fontFamily={en} fontSize="3xl" mb={4}>{title}</Heading>
+    <SSection>
+      <Heading as="h2" fontSize="3xl" mb={6}>{title}</Heading>
       {children}
-    </Box>
+    </SSection>
   );
 };
+
+const SSection = styled.section`
+  margin-bottom: 3rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;

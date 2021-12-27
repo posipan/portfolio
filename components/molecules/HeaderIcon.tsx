@@ -10,7 +10,8 @@ export const HeaderIcon = () => {
       flexDirection="column"
       w="100%"
       px={5}
-      py={{ base: 10, md: 10 }}
+      pt={{ base: 5, md: 10 }}
+      pb={{ base: 5, md: 10 }}
     >
       <Box
         as="div"
@@ -26,7 +27,7 @@ export const HeaderIcon = () => {
       >
         <Image src="/images/posipan.png" alt="POSIPAN" width={94} height={94} />
       </Box>
-      <Text fontSize="sm" mt={3} mb={6} textAlign="center">
+      <Text fontSize="xs" mt={3} mb={6} textAlign="center">
         オスの2年ぶりフロントエンドエンジニアです🐼
       </Text>
       <FollowMe />

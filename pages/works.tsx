@@ -35,7 +35,7 @@ const WorksPage: NextPage = ({
                     height={720}
                     className="thumbnail"
                   />
-                  <Text fontSize="md" mt={1}>
+                  <Text fontSize="sm" mt={1}>
                     {title}
                   </Text>
                 </Box>

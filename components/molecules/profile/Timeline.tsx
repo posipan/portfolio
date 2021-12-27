@@ -15,10 +15,10 @@ export const Timeline = ({
       <Text fontSize="sm" fontWeight="700" mb={1}>
         {period}
       </Text>
-      <Heading as="h3" fontSize="xl" mb={3}>
+      <Text as="h3" fontSize="lg" fontWeight="700" mb={3}>
         {title}
-      </Heading>
-      <Text w={{ base: "100%", md: "90%" }} fontSize="md" lineHeight="2">
+      </Text>
+      <Text w={{ base: "100%", md: "90%" }} fontSize="sm" lineHeight="2">
         {occupation}
       </Text>
     </SItem>
@@ -28,7 +28,7 @@ export const Timeline = ({
 const SItem = styled.li`
   position: relative;
   margin-left: 0;
-  padding: 0 0 2rem 2rem;
+  padding: 0 0 2.25rem 2rem;
   @media (max-width: 768px) {
     padding-left: 1.5rem;
   }

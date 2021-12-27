@@ -37,3 +37,10 @@ img {
 .thumbnail {
   border-radius: 6px;
 }
+
+
+@media (max-width: 768px) {
+  .thumbnailWork {
+    border-radius: 0px;
+  }
+}

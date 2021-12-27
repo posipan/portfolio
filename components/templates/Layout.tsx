@@ -39,13 +39,13 @@ export default function Layout({
       </Head>
       <Header>
         {workDataFlag ? (
-          <Box as="div" px={5} py={{ base: 0, md: 10 }}>
+          <Box as="div" px={{ base: 0, md: 5 }} pt={{ base: 0, md: 10 }} pb={{ base: 5, md: 5 }}>
             <Image
               src={`/images/works/${workDataImage}`}
               alt=""
               width={1280}
               height={720}
-              className="thumbnail"
+              className="thumbnail thumbnailWork"
             />
           </Box>
         ) : (

@@ -6,9 +6,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Text, Heading, Icon, Flex } from "@chakra-ui/react";
 import { IoOpenOutline, IoCalendarClearOutline } from "react-icons/io5";
 
-import { fontFamily, color } from "../../styles/style";
+import { fontFamily } from "../../styles/style";
 const { en } = fontFamily;
-const { primary } = color;
 
 export default function Work({
   workData,
@@ -28,13 +27,13 @@ export default function Work({
         siteTitleChild={`${workData.title} | Works`}
       >
         <article>
-          <Heading as="h1" fontSize={{ base: "3xl", md: "4xl" }} mb={{ base: 6, md: 8 }} pb={{ base: 6, md: 8  }}>
+          <Text as="h1" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" mb={{ base: 4, md: 6 }} pb={{ base: 4, md: 6 }}>
             {workData.title}
             <Text fontSize="sm" mt={3} display="flex" alignItems="center">
               <Icon as={IoCalendarClearOutline} fontSize="lg" mr={1} />
               <Date dateString={workData.date} />
             </Text>
-          </Heading>
+          </Text>
           <SContent
             dangerouslySetInnerHTML={{ __html: workData.contentHtml }}
           />
@@ -48,7 +47,7 @@ export default function Work({
             fontWeight="bold"
             target="_blank"
             rel="noreferrer noopener"
-            background={primary}
+            background="brand.primary"
             w="150px"
             p="8px"
             borderRadius="5px"
@@ -66,14 +65,18 @@ export default function Work({
 
 const SContent = styled.div`
   h2 {
-    margin: 3.5rem 0 1rem;
+    margin: 3rem 0 1rem;
     font-family: ${en};
     font-size: 1.875rem;
     font-weight: 700;
     line-height: 1;
+    @media (max-width: 768px) {
+      font-size: 1.875rem;
+    }
   }
   p {
     font-size: 1rem;
+    line-height: 1.7;
   }
   ul {
     padding-left: 1.375rem;
@@ -81,6 +84,7 @@ const SContent = styled.div`
       list-style: disc;
       font-size: 1rem;
       margin-bottom: 0.5rem;
+      line-height: 1.7;
     }
   }
 `;

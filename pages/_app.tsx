@@ -13,6 +13,10 @@ const theme = extendTheme({
       }
     },
   },
+  fonts: {
+    heading: "Ubuntu",
+    body: "Noto Sans JP",
+  },
   colors: {
     brand: {
       primary: "#484848",

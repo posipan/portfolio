@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Timeline } from "../../molecules/profile/Timeline";
 import { Flex, Box, Text } from "@chakra-ui/react";
-import { SkillList, TimelineItem } from "../../../types/profileSet";
+import { SkillList, TimelineItem } from "../../../types/ProfileSet";
 import { ProfileLayout } from "../../molecules/profile/ProfileLayout";
 
 export const Profile = () => {
@@ -25,7 +25,7 @@ export const Profile = () => {
         <Flex as="ul" wrap="wrap">
           {SkillList.map((item, index) => {
             return (
-              <Box as="li" key={index} textAlign="center" mr={3} mb={4}>
+              <Box as="li" key={index} textAlign="center" mr={{ base: 2, md: 3 }} mb={4}>
                 <Text color={item.color}>
                   <SIcon>{item.icon}</SIcon>
                 </Text>
