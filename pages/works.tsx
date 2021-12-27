@@ -2,39 +2,49 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { getSortedWorkData } from "../lib/works";
 import { GetStaticProps } from "next";
-import Date from "../components/Date";
-import Layout from "../components/Layout";
+import Layout from "../components/templates/Layout";
 import Image from "next/image";
+import { Text, SimpleGrid, Box } from "@chakra-ui/react";
 
 const WorksPage: NextPage = ({
   allWorkData,
 }: {
   allWorkData: {
     title: string;
-    date: string;
     slug: string;
     image: string;
   }[];
 }) => {
   return (
-    <Layout siteTitleChild="制作実績" siteDescription="制作実績">
-      <h1>制作実績</h1>
-      <ul>
-        {allWorkData.map(({ title, date, slug, image }) => (
-          <li key={slug}>
-            <Image src={`/images/works/${image}`} alt={title} width={1280 / 2} height={720 / 2} />
-            <br />
-            <Link href={`/works/${slug}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small>
-              <Date dateString={date} />
-            </small>
-          </li>
-        ))}
-      </ul>
-    </Layout>
+    <>
+      <Layout siteTitleChild="Works">
+        <SimpleGrid as="ul" columns={{ base: 1, md: 3 }} spacing={5}>
+          {allWorkData.map(({ title, slug, image }) => (
+            <Box as="li" key={slug} mb={5}>
+              <Link href={`/works/${slug}`}>
+                <Box
+                  as="a"
+                  display="block"
+                  cursor="pointer"
+                  _hover={{ opacity: 0.7 }}
+                >
+                  <Image
+                    src={`/images/works/${image}`}
+                    alt={title}
+                    width={1280}
+                    height={720}
+                    className="thumbnail"
+                  />
+                  <Text fontSize="md" mt={1}>
+                    {title}
+                  </Text>
+                </Box>
+              </Link>
+            </Box>
+          ))}
+        </SimpleGrid>
+      </Layout>
+    </>
   );
 };
 export default WorksPage;
