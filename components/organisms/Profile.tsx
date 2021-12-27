@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Timeline } from "../molecules/profile/Timeline";
 import { Flex, Box, Text } from "@chakra-ui/react";
-import { SkillList, TimelineItem } from "../../types/ProfileSet";
+import { SkillList, TimelineItem } from "../../types/profileSet";
 import { Section } from "../molecules/profile/Section";
 
 export const Profile = () => {
