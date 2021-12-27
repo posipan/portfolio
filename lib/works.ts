@@ -8,8 +8,8 @@ const worksDirectory = path.join(process.cwd(), "works");
 
 export function getSortedWorkData() {
   const fileNames = fs.readdirSync(worksDirectory);
-  const allWorkData = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
+  const allWorksData = fileNames.map((fileName) => {
+    const id = fileName.replace(/\.md$/, "");
 
     const fullPath = path.join(worksDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -17,11 +17,16 @@ export function getSortedWorkData() {
     const matterResult = matter(fileContents);
 
     return {
-      slug,
-      ...(matterResult.data as { date: string; title: string }),
+      id,
+      ...(matterResult.data as {
+        date: string;
+        title: string;
+        url: string;
+        image: string;
+      }),
     };
   });
-  return allWorkData.sort((a, b) => {
+  return allWorksData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -30,35 +35,37 @@ export function getSortedWorkData() {
   });
 }
 
-export function getAllWorkSlugs() {
+export function getAllWorkIds() {
   const fileNames = fs.readdirSync(worksDirectory);
 
   return fileNames.map((fileName) => {
     return {
       params: {
-        slug: fileName.replace(/\.md$/, ""),
+        id: fileName.replace(/\.md$/, ""),
       },
     };
   });
 }
 
-export async function getWorkData(slug: string) {
-  const fullPath = path.join(worksDirectory, `${slug}.md`);
+export async function getWorkData(id: string) {
+  const fullPath = path.join(worksDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
-  // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
   return {
-    slug,
+    id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string }),
+    ...(matterResult.data as {
+      date: string;
+      title: string;
+      url: string;
+      image: string;
+    }),
   };
 }

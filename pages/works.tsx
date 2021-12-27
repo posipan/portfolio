@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import { getSortedWorkData } from "../lib/works";
 import { GetStaticProps } from "next";
@@ -6,22 +5,31 @@ import Layout from "../components/templates/Layout";
 import Image from "next/image";
 import { Text, SimpleGrid, Box } from "@chakra-ui/react";
 
-const WorksPage: NextPage = ({
-  allWorkData,
+export const getStaticProps: GetStaticProps = async () => {
+  const allWorksData = getSortedWorkData();
+  return {
+    props: {
+      allWorksData,
+    },
+  };
+};
+
+export default function Works({
+  allWorksData,
 }: {
-  allWorkData: {
+  allWorksData: {
+    id: string;
     title: string;
-    slug: string;
     image: string;
-  }[];
-}) => {
+  }[]
+}) {
   return (
     <>
       <Layout siteTitleChild="Works">
         <SimpleGrid as="ul" columns={{ base: 1, md: 3 }} spacing={5}>
-          {allWorkData.map(({ title, slug, image }) => (
-            <Box as="li" key={slug} mb={5}>
-              <Link href={`/works/${slug}`}>
+          {allWorksData.map(({ title, id, image }) => (
+            <Box as="li" key={id} mb={5}>
+              <Link href={`/works/${id}`}>
                 <Box
                   as="a"
                   display="block"
@@ -46,14 +54,4 @@ const WorksPage: NextPage = ({
       </Layout>
     </>
   );
-};
-export default WorksPage;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const allWorkData = getSortedWorkData();
-  return {
-    props: {
-      allWorkData,
-    },
-  };
 };

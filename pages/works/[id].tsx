@@ -1,13 +1,29 @@
 import styled from "styled-components";
 import Layout from "../../components/templates/Layout";
 import Date from "../../components/atoms/Date";
-import { getAllWorkSlugs, getWorkData } from "../../lib/works";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { Text, Heading, Icon, Flex } from "@chakra-ui/react";
+import { getAllWorkIds, getWorkData } from "../../lib/works";
+import { GetStaticProps, GetStaticPaths } from "next";
+import { Text, Icon, Flex } from "@chakra-ui/react";
 import { IoOpenOutline, IoCalendarClearOutline } from "react-icons/io5";
-
 import { fontFamily } from "../../styles/style";
 const { en } = fontFamily;
+
+export const getStaticProps: GetStaticProps = async({ params }) => {
+  const workData = await getWorkData(params.id as string)
+  return {
+      props: {
+          workData
+      }
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllWorkIds();
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
 export default function Work({
   workData,
@@ -17,6 +33,7 @@ export default function Work({
     date: string;
     url: string;
     image: string;
+    contentHtml: string;
   };
 }) {
   return (
@@ -27,7 +44,13 @@ export default function Work({
         siteTitleChild={`${workData.title} | Works`}
       >
         <article>
-          <Text as="h1" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" mb={{ base: 4, md: 6 }} pb={{ base: 4, md: 6 }}>
+          <Text
+            as="h1"
+            fontSize={{ base: "3xl", md: "4xl" }}
+            fontWeight="700"
+            mb={{ base: 4, md: 6 }}
+            pb={{ base: 4, md: 6 }}
+          >
             {workData.title}
             <Text fontSize="sm" mt={3} display="flex" alignItems="center">
               <Icon as={IoCalendarClearOutline} fontSize="lg" mr={1} />
@@ -88,20 +111,3 @@ const SContent = styled.div`
     }
   }
 `;
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllWorkSlugs();
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const workData = await getWorkData(params.slug as string);
-  return {
-    props: {
-      workData,
-    },
-  };
-};
