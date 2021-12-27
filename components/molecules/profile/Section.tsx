@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Heading } from "@chakra-ui/react";
 
-export const ProfileLayout = ({ title, children }: {
+export const Section = ({ title, children }: {
   title: string;
   children: React.ReactNode;
 }) => {

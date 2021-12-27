@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Layout from "../components/templates/Layout";
-import { Profile } from "../components/organisms/profile/Profile";
+import { Profile } from "../components/organisms/Profile";
 
 const Home: NextPage = () => {
   return (

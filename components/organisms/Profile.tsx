@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { Timeline } from "../../molecules/profile/Timeline";
+import { Timeline } from "../molecules/profile/Timeline";
 import { Flex, Box, Text } from "@chakra-ui/react";
-import { SkillList, TimelineItem } from "../../../types/ProfileSet";
-import { ProfileLayout } from "../../molecules/profile/ProfileLayout";
+import { SkillList, TimelineItem } from "../../types/ProfileSet";
+import { Section } from "../molecules/profile/Section";
 
 export const Profile = () => {
   return (
     <>
-      <ProfileLayout title="History">
+      <Section title="History">
         <Box as="ul">
           {TimelineItem.map((item, index) => {
             return (
@@ -20,8 +20,8 @@ export const Profile = () => {
             );
           })}
         </Box>
-      </ProfileLayout>
-      <ProfileLayout title="Skill">
+      </Section>
+      <Section title="Skill">
         <Flex as="ul" wrap="wrap">
           {SkillList.map((item, index) => {
             return (
@@ -36,7 +36,7 @@ export const Profile = () => {
             );
           })}
         </Flex>
-      </ProfileLayout>
+      </Section>
     </>
   );
 };
