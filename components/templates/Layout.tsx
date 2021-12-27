@@ -21,7 +21,6 @@ export default function Layout({
   workDataFlag?: boolean;
   workDataImage?: string;
   siteTitleChild?: string;
-  siteDescription: string;
   home?: boolean;
 }) {
   return (

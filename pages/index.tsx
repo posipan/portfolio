@@ -1,13 +1,10 @@
-import type { NextPage } from "next";
 import Layout from "../components/templates/Layout";
 import { Profile } from "../components/organisms/Profile";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <Layout home>
       <Profile />
     </Layout>
   );
 };
-
-export default Home;
