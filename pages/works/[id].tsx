@@ -1,29 +1,14 @@
 import styled from "styled-components";
-import Layout from "../../components/templates/Layout";
-import Date from "../../components/atoms/Date";
+import Layout from "../../components/layout/Layout";
+import Date from "../../components/Date";
 import { getAllWorkIds, getWorkData } from "../../lib/works";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Text, Icon, Flex } from "@chakra-ui/react";
 import { IoOpenOutline, IoCalendarClearOutline } from "react-icons/io5";
 import { fontFamily } from "../../styles/style";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 const { en } = fontFamily;
-
-export const getStaticProps: GetStaticProps = async({ params }) => {
-  const workData = await getWorkData(params.id as string)
-  return {
-      props: {
-          workData
-      }
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllWorkIds();
-  return {
-    paths,
-    fallback: false,
-  };
-};
 
 export default function Work({
   workData,
@@ -36,6 +21,21 @@ export default function Work({
     contentHtml: string;
   };
 }) {
+  // const router = useRouter()
+  // const [Query, setQuery] = useState<string>()
+
+  // useEffect(() => {
+  //   if (router.asPath !== router.route) {
+  //     const query = router.query.id as string;
+  //     setQuery(query);
+  //   }
+  // }, [router]);
+
+  // useEffect(() => {
+  //   if(Query){
+  //   }
+  // }, [Query]);
+
   return (
     <>
       <Layout
@@ -85,6 +85,24 @@ export default function Work({
     </>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllWorkIds();
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  
+  const workData = await getWorkData(params.id as string);
+  return {
+    props: {
+      workData,
+    },
+  };
+};
 
 const SContent = styled.div`
   h2 {

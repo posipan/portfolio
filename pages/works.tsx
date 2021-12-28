@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getSortedWorkData } from "../lib/works";
 import { GetStaticProps } from "next";
-import Layout from "../components/templates/Layout";
+import Layout from "../components/layout/Layout";
 import Image from "next/image";
 import { Text, SimpleGrid, Box } from "@chakra-ui/react";
 

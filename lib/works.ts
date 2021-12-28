@@ -20,9 +20,6 @@ export function getSortedWorkData() {
       id,
       ...(matterResult.data as {
         date: string;
-        title: string;
-        url: string;
-        image: string;
       }),
     };
   });

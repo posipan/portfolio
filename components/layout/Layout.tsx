@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { Header } from "../organisms/Header";
-import { Footer } from "../organisms/Footer";
-import { HeaderIcon } from "../molecules/HeaderIcon";
-import { Nav } from "../organisms/Nav";
+import { Header } from "./header/Header";
+import { Footer } from "./footer/Footer";
+import { HeaderIcon } from "./header/HeaderIcon";
+import { Nav } from "../Nav";
 import Image from "next/image";
 import { Box } from "@chakra-ui/react";
 

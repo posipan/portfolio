@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Timeline } from "../molecules/profile/Timeline";
+import { Timeline } from "../profile/Timeline";
 import { Flex, Box, Text } from "@chakra-ui/react";
-import { Section } from "../molecules/profile/Section";
+import { Section } from "./Section";
 import {
   SiHtml5,
   SiSass,

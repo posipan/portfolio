@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Ubuntu:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Ubuntu:wght@500;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -38,9 +38,9 @@ img {
   border-radius: 6px;
 }
 
-
 @media (max-width: 768px) {
   .thumbnailWork {
     border-radius: 0px;
+
   }
 }

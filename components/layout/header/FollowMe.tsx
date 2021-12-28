@@ -1,7 +1,6 @@
 import { SiGithub, SiTwitter } from "react-icons/si";
 import { MdWebAsset } from "react-icons/md";
 import { HStack, Box, Text } from "@chakra-ui/react";
-import { FollowMeItem } from "../atoms/FollowMeItem";
 
 type FollowMeListType = {
   link: string;
@@ -15,11 +14,26 @@ const FollowMeList: Array<FollowMeListType> = [
 
 export const FollowMe = () => {
   return (
-    <HStack spacing="15px" display="flex" alignItems="center" justifyContent="center">
+    <HStack
+      spacing="15px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
       {FollowMeList.map((item, index) => {
         return (
           <Box key={index} as="li">
-            <FollowMeItem href={item.link}>{item.icon}</FollowMeItem>
+            <Text
+              as="a"
+              fontSize="2xl"
+              color="brand.secondary"
+              href={item.link}
+              target="_blank"
+              rel="noreferrer noopener"
+              _hover={{ opacity: 0.7 }}
+            >
+              {item.icon}
+            </Text>
           </Box>
         );
       })}

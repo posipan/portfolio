@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { fontFamily, color } from "../../styles/style";
+import { fontFamily, color } from "../styles/style";
 import { useRouter } from "next/router";
 import { Box, HStack } from "@chakra-ui/react";
 
