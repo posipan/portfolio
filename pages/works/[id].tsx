@@ -21,21 +21,6 @@ export default function Work({
     contentHtml: string;
   };
 }) {
-  // const router = useRouter()
-  // const [Query, setQuery] = useState<string>()
-
-  // useEffect(() => {
-  //   if (router.asPath !== router.route) {
-  //     const query = router.query.id as string;
-  //     setQuery(query);
-  //   }
-  // }, [router]);
-
-  // useEffect(() => {
-  //   if(Query){
-  //   }
-  // }, [Query]);
-
   return (
     <>
       <Layout
@@ -95,7 +80,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  
+
   const workData = await getWorkData(params.id as string);
   return {
     props: {

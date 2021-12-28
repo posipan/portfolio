@@ -29,7 +29,7 @@ export default function Works({
         <SimpleGrid as="ul" columns={{ base: 1, md: 3 }} spacing={5}>
           {allWorksData.map(({ title, id, image }) => (
             <Box as="li" key={id} mb={5}>
-              <Link href={`/works/${id}`}>
+              <Link href={`/works/${encodeURIComponent(id)}`}>
                 <Box
                   as="a"
                   display="block"
