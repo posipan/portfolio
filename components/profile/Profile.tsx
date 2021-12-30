@@ -88,9 +88,9 @@ export const Profile = () => {
                 <Text color={item.color}>
                   <SIcon>{item.icon}</SIcon>
                 </Text>
-                <Text fontSize="xs" mt={2}>
+                <SLangText>
                   {item.title}
-                </Text>
+                </SLangText>
               </Box>
             );
           })}
@@ -106,4 +106,9 @@ const SIcon = styled.div`
     height: 44px;
     margin: 0 auto;
   }
+`;
+
+const SLangText = styled.p`
+  font-size: 10px;
+  margin-top: 0.5rem;
 `;
