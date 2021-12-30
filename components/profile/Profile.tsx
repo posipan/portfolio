@@ -88,7 +88,7 @@ export const Profile = () => {
                 <Text color={item.color}>
                   <SIcon>{item.icon}</SIcon>
                 </Text>
-                <Text fontSize="10px" mt={2}>
+                <Text fontSize="xs" mt={2}>
                   {item.title}
                 </Text>
               </Box>
