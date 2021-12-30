@@ -42,7 +42,7 @@ export const TimelineItem: Array<TimelineItemType> = [
     title: "フリーランスでフロントエンドエンジニアを始める",
     period: "2021.08 - 現在",
     occupation:
-      "YouTube APIを使って自分用にマーケティングツールの制作を試みたことがきっかけでプログラミングを再開。現在は学習に比重を置きつつ、クラウドソーシングでフロントエンドエンジニアを始める。",
+      "YouTube APIを使って自分用にマーケティングツールの制作を試みたことがきっかけでプログラミングを再開し、楽しくなる。現在は学習に比重を置きつつ、クラウドソーシングでフロントエンドエンジニアを始める。",
   },
 ];
 
@@ -50,7 +50,7 @@ type SkillListType = {
   title: string;
   color: string;
   icon: React.ReactNode;
-}
+};
 export const SkillList: Array<SkillListType> = [
   { title: "HTML", color: "#E34F26", icon: <SiHtml5 /> },
   { title: "SCSS", color: "#CC6699", icon: <SiSass /> },
@@ -84,13 +84,19 @@ export const Profile = () => {
         <Flex as="ul" wrap="wrap">
           {SkillList.map((item, index) => {
             return (
-              <Box as="li" key={index} textAlign="center" mr={{ base: 2, md: 3 }} mb={4}>
+              <Box
+                as="li"
+                key={index}
+                textAlign="center"
+                mr={{ base: 2, md: 4 }}
+                mb={4}
+              >
                 <Text color={item.color}>
                   <SIcon>{item.icon}</SIcon>
                 </Text>
-                <SLangText>
+                <Text fontSize="xs" mt={2}>
                   {item.title}
-                </SLangText>
+                </Text>
               </Box>
             );
           })}
@@ -106,9 +112,4 @@ const SIcon = styled.div`
     height: 44px;
     margin: 0 auto;
   }
-`;
-
-const SLangText = styled.p`
-  font-size: 10px;
-  margin-top: 0.5rem;
 `;
