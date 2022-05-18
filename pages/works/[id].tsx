@@ -3,8 +3,13 @@ import Layout from '../../components/layout/Layout';
 import Date from '../../components/Date';
 import { getAllWorkIds, getWorkData } from '../../lib/works';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Text, Icon, Box } from '@chakra-ui/react';
-import { IoOpenOutline, IoCalendarClearOutline } from 'react-icons/io5';
+import { Text, Icon, Box, Flex } from '@chakra-ui/react';
+import {
+  IoOpenOutline,
+  IoCalendarClearOutline,
+  IoArrowBack,
+} from 'react-icons/io5';
+import Link from 'next/link';
 
 export default function Work({
   workData,
@@ -41,25 +46,43 @@ export default function Work({
           <SContent
             dangerouslySetInnerHTML={{ __html: workData.contentHtml }}
           />
-          <Box
-            href={workData.url}
-            as="a"
-            display="inline-block"
-            alignItems="center"
-            justifyContent="center"
-            fontSize="sm"
-            fontWeight="bold"
-            target="_blank"
-            rel="noreferrer noopener"
-            background="brand.primary"
-            w="auto"
-            p="8px 16px"
-            borderRadius="5px"
-            color="#fff"
-            _hover={{ opacity: 0.7 }}
-          >
-            {workData.title}
-            <Icon as={IoOpenOutline} fontSize="md" ml={1} />
+          <Box display="inline-block">
+            <Flex
+              href={workData.url}
+              as="a"
+              alignItems="center"
+              fontSize="sm"
+              fontWeight="bold"
+              target="_blank"
+              w="auto"
+              rel="noreferrer noopener"
+              textDecoration="underline"
+              _hover={{ opacity: 0.7 }}
+            >
+              {workData.url}
+              <Icon as={IoOpenOutline} fontSize="md" ml={1} />
+            </Flex>
+          </Box>
+          <Box m="3rem auto 0">
+            <Link href="/works">
+              <Text
+                as="a"
+                p="1rem"
+                w="100%"
+                m="0 auto"
+                cursor="pointer"
+                maxWidth="280px"
+                borderRadius="5px"
+                color="#fff"
+                textAlign="center"
+                fontWeight="bold"
+                fontSize="md"
+                background="brand.primary"
+                _hover={{ opacity: 0.7 }}
+              >
+                制作物一覧に戻る
+              </Text>
+            </Link>
           </Box>
         </article>
       </Layout>
