@@ -12,6 +12,8 @@ import {
   SiNodedotjs,
   SiWordpress,
   SiGit,
+  SiPhp,
+  SiLaravel,
 } from "react-icons/si";
 
 type TimelineItemType = {
@@ -59,6 +61,8 @@ export const SkillList: Array<SkillListType> = [
   { title: "React", color: "#61DAFB", icon: <SiReact /> },
   { title: "Next.js", color: "#000", icon: <SiNextdotjs /> },
   { title: "Node.js", color: "#339933", icon: <SiNodedotjs /> },
+  { title: "PHP", color: "#474A8A", icon: <SiPhp /> },
+  { title: "Laravel", color: "#F05340", icon: <SiLaravel /> },
   { title: "WordPress", color: "#21759B", icon: <SiWordpress /> },
   { title: "Git", color: "#F1502F", icon: <SiGit /> },
 ];
