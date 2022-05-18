@@ -1,14 +1,10 @@
-import styled from "styled-components";
-import Layout from "../../components/layout/Layout";
-import Date from "../../components/Date";
-import { getAllWorkIds, getWorkData } from "../../lib/works";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { Text, Icon, Flex } from "@chakra-ui/react";
-import { IoOpenOutline, IoCalendarClearOutline } from "react-icons/io5";
-import { fontFamily } from "../../styles/style";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-const { en } = fontFamily;
+import styled from 'styled-components';
+import Layout from '../../components/layout/Layout';
+import Date from '../../components/Date';
+import { getAllWorkIds, getWorkData } from '../../lib/works';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { Text, Icon, Box } from '@chakra-ui/react';
+import { IoOpenOutline, IoCalendarClearOutline } from 'react-icons/io5';
 
 export default function Work({
   workData,
@@ -31,7 +27,7 @@ export default function Work({
         <article>
           <Text
             as="h1"
-            fontSize={{ base: "3xl", md: "4xl" }}
+            fontSize={{ base: '2xl', md: '3xl' }}
             fontWeight="700"
             mb={{ base: 4, md: 6 }}
             pb={{ base: 4, md: 6 }}
@@ -45,26 +41,26 @@ export default function Work({
           <SContent
             dangerouslySetInnerHTML={{ __html: workData.contentHtml }}
           />
-          <Flex
+          <Box
             href={workData.url}
             as="a"
+            display="inline-block"
             alignItems="center"
             justifyContent="center"
-            fontSize="md"
-            fontFamily={en}
+            fontSize="sm"
             fontWeight="bold"
             target="_blank"
             rel="noreferrer noopener"
             background="brand.primary"
-            w="150px"
-            p="8px"
+            w="auto"
+            p="8px 16px"
             borderRadius="5px"
             color="#fff"
             _hover={{ opacity: 0.7 }}
           >
-            Visit Website
+            {workData.title}
             <Icon as={IoOpenOutline} fontSize="md" ml={1} />
-          </Flex>
+          </Box>
         </article>
       </Layout>
     </>
@@ -80,7 +76,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-
   const workData = await getWorkData(params.id as string);
   return {
     props: {
@@ -92,13 +87,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const SContent = styled.div`
   h2 {
     margin: 3rem 0 1rem;
-    font-family: ${en};
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    @media (max-width: 768px) {
-      font-size: 1.875rem;
-    }
   }
   p {
     font-size: 1rem;

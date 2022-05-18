@@ -14,7 +14,7 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Ubuntu",
+    heading: "Noto Sans JP",
     body: "Noto Sans JP",
   },
   colors: {

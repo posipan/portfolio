@@ -24,25 +24,25 @@ export const TimelineItem: Array<TimelineItemType> = [
     title: "都内のWeb制作会社でフロントエンドエンジニアとして勤める",
     period: "2015 - 2018",
     occupation:
-      "主にWebサイトやブラウザゲームのコーディング制作を行う。不定期で客先常駐も経験する。",
+      "主にWebサイトやブラウザゲームのコーディングを担当。不定期で客先常駐も経験する。",
   },
   {
-    title: "都内のWeb制作会社でWebエンジニアとして勤める",
+    title: "都内のWeb制作/開発会社でフロントエンジニアとして勤める",
     period: "2018 - 2019",
     occupation:
-      "キャリアップのために転職。WordPressやPHP案件、Vue.jsを使った案件に携わる。",
+      "Web開発も行いたいと思い、キャリアップのために転職。WordPressやPHP案件、Vue.jsを使った案件に携わる。",
   },
   {
     title: "音楽活動と販売を始める",
     period: "2019 - 2021",
     occupation:
-      "思い描いていたエンジニア像とかけ離れてしまい、Web制作会社を退職する。1度きりの人生と意気込み、音楽活動を始める。国際的なバンドを組むも1曲制作して自然消滅。その後は個人でYouTubeやBeatStars.comで活動する。",
+      "上記の会社では開発の仕事に携わることがあまりなかったため退職。1度きりの人生と意気込み、音楽活動を始める。国際的なバンドを組むも1曲制作して自然消滅。その後は個人でYouTubeやBeatStars.comで活動する。",
   },
   {
-    title: "フリーランスでフロントエンドエンジニアを始める",
-    period: "2021.08 - 現在",
+    title: "クラウドソーシングでフロントエンドエンジニアをしながら、開発の勉強を始める",
+    period: "2021.11 - 現在",
     occupation:
-      "YouTube APIを使って自分用にマーケティングツールの制作を試みたことがきっかけでプログラミングを再開し、楽しくなる。現在は学習に比重を置きつつ、クラウドソーシングでフロントエンドエンジニアを始める。",
+      "YouTube APIを使って自分用にマーケティングツールの制作を試みたことがきっかけでプログラミングを再開。現在は学習に比重を置きつつ、クラウドソーシングでフロントエンドエンジニアとして活動、評価はMAXを継続中。",
   },
 ];
 
@@ -66,7 +66,7 @@ export const SkillList: Array<SkillListType> = [
 export const Profile = () => {
   return (
     <>
-      <Section title="History">
+      <Section title="経歴">
         <Box as="ul">
           {TimelineItem.map((item, index) => {
             return (
@@ -80,7 +80,7 @@ export const Profile = () => {
           })}
         </Box>
       </Section>
-      <Section title="Skill">
+      <Section title="スキル">
         <Flex as="ul" wrap="wrap">
           {SkillList.map((item, index) => {
             return (

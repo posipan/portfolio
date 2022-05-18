@@ -1,15 +1,14 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { fontFamily, color } from "../styles/style";
+import { color } from "../styles/style";
 import { useRouter } from "next/router";
 import { Box, HStack } from "@chakra-ui/react";
 
-const { en } = fontFamily;
 const { primary } = color;
 
 const navList = [
-  { title: "Profile", path: "/" },
-  { title: "Works", path: "/works" },
+  { title: "プロファイル", path: "/" },
+  { title: "制作物", path: "/works" },
 ];
 
 export const Nav = () => {
@@ -44,9 +43,8 @@ export const Nav = () => {
 
 const SAnchor = styled.a`
   position: relative;
-  font-size: 1.25rem;
-  font-family: ${en};
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
   padding-bottom: 0.5rem;
   cursor: pointer;
   &:hover {
