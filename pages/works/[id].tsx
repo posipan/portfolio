@@ -7,7 +7,6 @@ import { Text, Icon, Box, Flex } from '@chakra-ui/react';
 import {
   IoOpenOutline,
   IoCalendarClearOutline,
-  IoArrowBack,
 } from 'react-icons/io5';
 import Link from 'next/link';
 
@@ -35,7 +34,6 @@ export default function Work({
             fontSize={{ base: '2xl', md: '3xl' }}
             fontWeight="700"
             mb={{ base: 4, md: 6 }}
-            pb={{ base: 4, md: 6 }}
           >
             {workData.title}
             <Text fontSize="sm" mt={3} display="flex" alignItems="center">
@@ -43,9 +41,6 @@ export default function Work({
               <Date dateString={workData.date} />
             </Text>
           </Text>
-          <SContent
-            dangerouslySetInnerHTML={{ __html: workData.contentHtml }}
-          />
           <Box display="inline-block">
             <Flex
               href={workData.url}
@@ -63,7 +58,10 @@ export default function Work({
               <Icon as={IoOpenOutline} fontSize="md" ml={1} />
             </Flex>
           </Box>
-          <Box m="3rem auto 0">
+          <SContent
+            dangerouslySetInnerHTML={{ __html: workData.contentHtml }}
+          />
+          <Box m="4rem auto 0">
             <Link href="/works">
               <Text
                 as="a"
@@ -112,7 +110,11 @@ const SContent = styled.div`
     margin: 3rem 0 1rem;
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem;
   }
   p {
     font-size: 1rem;
