@@ -5,17 +5,21 @@ url: "https://panda-life.fun"
 image: "posipan-portfolio.png"
 ---
 
-## Overview
-経歴や実績を一覧できるPOSIPANのポートフォリオサイト
+## 概要
+経歴や実績を一覧できる自分のポートフォリオサイト
 
-## Background
-自分の経歴や実績を一覧できるものを自作したく、Next.jsの勉強も兼ねて作成した。
+## 制作の目的
+* 自分の経歴や実績を一覧できるものが欲しかっため。
+* Next.jsの勉強のため。
 
-## Period
+## 制作期間
 3日
 
-## Skill
+## スキル
 * React
 * Next.js
+* TypeScript
+* Chakra UI
 
-## Link
+## 今後の展望
+* スタイル調整をTailwind CSSで行いたい

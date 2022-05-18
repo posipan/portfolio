@@ -5,23 +5,24 @@ url: "https://voicen.site"
 image: "voicen.png"
 ---
 
-## Overview
-オーディオブックや動画の作成等に使える音声作成&ダウンロードサービス。
+## 概要
+音声作成&ダウンロードサービス
 
-## Background
+## 制作背景
 * オーディオブックの普及やYouTubeやTikTokで自動音声を使用した動画を頻繁に見かけるようになったことから、需要があるのでは思い作成に至った。
-* また、自動音声を使用することで、しゃべることが苦手な人でも音声入り動画を作れるようになる。
-* Google Cloud APIを使ってみたかった。
+* Google Cloud APIを使って何かを作ってみたかった。
 * React、TypeScriptの学習も兼ねた。
 
-## Period
+## 制作期間
 1週間
 
-## Skill
+## スキル
 * React
 * TypeScript
 * Chakra UI
 * Google Cloud API
 * Firebase
 
-## Link
+## 今後の展望や成果
+思いのほか振るわず...  
+このサービスは停止する予定です。
